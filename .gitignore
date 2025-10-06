@@ -73,3 +73,11 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+ios
+android
+.env*
+!.env.sample
+!.env.example
+dist
+.turbo

@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    container_name: slack_app_node
+    environment:
+      - SLACK_CLIENT_ID=${SLACK_CLIENT_ID}
+      - SLACK_CLIENT_SECRET=${SLACK_CLIENT_SECRET}
+    volumes:
+      - ./src:/usr/src/app/src
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: slack_app_caddy
+    ports:
+      - '443:443'
+      - '80:80'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+
+volumes:
+  caddy_data: {}
