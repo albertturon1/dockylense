@@ -1,0 +1,4 @@
+localhost {
+    tls localhost.pem localhost-key.pem
+    reverse_proxy localhost:4000
+}

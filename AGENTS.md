@@ -29,6 +29,10 @@
 
 ## Code Style Guidelines
 
+### Module System
+
+- **ESM REQUIRED**: This project must be built using ECMAScript Modules (ESM) rather than CommonJS (CJS) to ensure compatibility with modern JavaScript standards, tree-shaking, and static analysis tools.
+
 ### TypeScript
 
 - **STRICT TYPING REQUIRED**: The use of `any` types is strictly prohibited. Type assertions such as `as any` and `as string` are forbidden except in exceptional circumstances.

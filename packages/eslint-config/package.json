@@ -1,6 +1,6 @@
 {
-  "name": "@dockylense/eslint-config",
-  "version": "0.0.0",
+  "name": "@repo/eslint-config",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "exports": {
@@ -9,13 +9,16 @@
     "./node": "./node.js"
   },
   "devDependencies": {
+    "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^28.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.0.0",
     "typescript-eslint": "^8.0.0"
   }
 }

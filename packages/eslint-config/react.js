@@ -1,9 +1,13 @@
 import baseConfig from './base.js';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import jest from 'eslint-plugin-jest';
 
 export default [
   ...baseConfig,
+  {
+    ignores: ['eslint.config.*', 'jest.config.*', 'metro.config.*', 'babel.config.*'],
+  },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
@@ -27,6 +31,22 @@ export default [
       react: {
         version: 'detect',
       },
+    },
+  },
+  {
+    files: [
+      '**/*.test.{js,ts}',
+      '**/*.spec.{js,ts}',
+      '**/__tests__/**/*.{js,ts}',
+    ],
+    plugins: {
+      jest,
+    },
+    languageOptions: {
+      globals: jest.environments.globals.globals,
+    },
+    rules: {
+      ...jest.configs.recommended.rules,
     },
   },
 ];
