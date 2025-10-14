@@ -1,13 +1,24 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const {getDefaultConfig} = require('@react-native/metro-config');
+const { withNativeWind } = require('nativewind/metro');
+const path = require("path");
+ 
+const workspaceRoot = path.resolve(__dirname, "../..");
+const projectRoot = __dirname;
+ 
+// Include the monorepo root so Metro can watch shared packages (e.g. packages/ui)
+const config = getDefaultConfig(projectRoot);
+ 
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('@react-native/metro-config').MetroConfig}
- */
-const config = {
-  watchFolders: [require('path').resolve(__dirname, '../../../')],
-};
-
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+// Tell Metro exactly where to resolve node_modules
+// Prevents missing modules or duplicate React errors in monorepos
+config.watchFolders = [workspaceRoot];
+config.resolver.nodeModulesPaths = [
+  path.resolve(projectRoot, "node_modules"),
+  path.resolve(workspaceRoot, "node_modules")
+];
+ 
+// Disable Metro's default upward module lookup
+// Ensures consistent dependency resolution inside a monorepo
+config.resolver.disableHierarchicalLookup = true;
+ 
+module.exports = withNativeWind(config, { input: './global.css' })

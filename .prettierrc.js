@@ -4,4 +4,7 @@ module.exports = {
   bracketSpacing: false,
   singleQuote: true,
   trailingComma: 'all',
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx', 'cn', 'twmerge', 'cva'],
+  tailwindAttributes: ['class', 'className', 'ngClass', '.*ClassName'],
 };
