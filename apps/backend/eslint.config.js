@@ -1,3 +1,3 @@
-import nodeJsConfig from '@dockylense/eslint-config/node';
+import nodeJsConfig from '@repo/eslint-config/node';
 
 export default nodeJsConfig;

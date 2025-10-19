@@ -2,6 +2,8 @@
   "name": "dockylense",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -10,16 +12,17 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
-    "lint:fix": "pnpm turbo lint -- --fix"
+    "lint:fix": "bun run turbo lint -- --fix",
+    "postinstall": "mkdir -p apps/mac && rm -rf apps/mac/node_modules && ln -s ../../node_modules apps/mac/node_modules"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.5.8"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "bun@1.2.19",
   "engines": {
     "node": ">=18",
-    "pnpm": ">=8.0.0"
+    "bun": ">=1.0.0"
   }
 }
