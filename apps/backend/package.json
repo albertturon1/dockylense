@@ -1,5 +1,5 @@
 {
-  "name": "dockylense-backend",
+  "name": "@repo/backend",
   "version": "1.0.0",
   "description": "Backend API for Dockylense - Intelligent cross-platform search",
   "author": "",
@@ -44,7 +44,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@dockylense/eslint-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",

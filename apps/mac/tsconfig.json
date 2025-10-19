@@ -1,7 +1,13 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "isolatedModules": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "nativewind-env.d.ts"],
-  "exclude": [
-    "tailwind.config.js"
-  ]
+  "exclude": ["tailwind.config.js"]
 }
